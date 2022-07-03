@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block conteudo %}
+
+<div class="row">
+    {% if not request.user.is_authenticated %}
+    <div class="col-lg mt-3">
+        <h4>Login</h4>
+        <p>Se já possui cadastro, basta entrar com seu usuário e senha abaixo :</p>
+
+        <form method="POST" action="{% url 'perfil:login' %}">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="InputUsuario1">Usuário</label>
+              <input type="text" name="username" class="form-control" id="InputUsuario1" aria-describedby="usuariolHelp" placeholder="Digite seu usuário">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Senha</label>
+                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha">
+            </div>
+           
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Entrar</button>
+          </form>
+
+
+
+
+    </div>
+    {% endif %}
+
+    <div class="col-lg mt-3">
+
+        {% block titulocadastro %}
+        <h4>Cadastro</h4>
+        <p>Para realizar seu cadastro preencha o formulário abaixo :</p>
+        {% endblock %}
+        <form method="POST" action="">
+            {% csrf_token %}
+           {{ userform|crispy }} 
+           {{ perfilform|crispy }} 
+
+           <div class="row">
+            <button type="submit" class='btn btn-primary btn-block btn-lg'>Enviar</button>
+           </div>
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}
+
