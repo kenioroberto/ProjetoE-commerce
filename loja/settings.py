@@ -44,8 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'crispy_forms',
-    # TODO: Remover debug toolbar
-    'debug_toolbar',
+    
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -61,8 +60,7 @@ MIDDLEWARE = [
 
     
 
-    # TODO: Remover debug toolbar
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+  
 ]
 
 ROOT_URLCONF = 'loja.urls'
@@ -161,12 +159,7 @@ SESSION_SAVE_EVERY_REQUEST = False
 # Serializer - Padrão JSON
 # SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
-# TODO: Remover debug toolbar
-INTERNAL_IPS = [
-    # ...
-    "127.0.0.1",
-    # ...
-]
+
 
 # Para sessions em arquivos ao invés da base de dados
 # SESSION_ENGINE = "django.contrib.sessions.backends.file"
